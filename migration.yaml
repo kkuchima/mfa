@@ -1,0 +1,48 @@
+apiVersion: anthos-migrate.cloud.google.com/v1beta1
+kind: Migration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"anthos-migrate.cloud.google.com/v1beta1","kind":"Migration","metadata":{"annotations":{},"name":"my-migration","namespace":"default"},"spec":{"artifacts":{"deployment":{"appName":"app-quickstart-instance","bucket":"kuchima03-migration-artifacts","pathPrefix":"default-my-migration/"},"excludeFilters":["- *.swp","- /etc/fstab","- /boot/","- /tmp/*","- /var/log/*.log*","- /var/log/*/*.log*","- /var/cache/*"],"image":{"base":"gcr.io/kuchima03/quickstart-instance-non-runnable-base:v1.0.0","name":"gcr.io/kuchima03/quickstart-instance:v1.0.0"}},"intent":"Image","source":{"gce":{"labels":{"migration-cluster":"migration-processing","migration-name":"my-migration","migration-namespace":"default"},"project":"kuchima03","vmId":"quickstart-instance","zone":"asia-east1-a"}}}}
+  creationTimestamp: "2020-06-11T20:12:26Z"
+  finalizers:
+  - delete.disks.migration.finalizer
+  generation: 2
+  name: my-migration
+  namespace: default
+  resourceVersion: "9676"
+  selfLink: /apis/anthos-migrate.cloud.google.com/v1beta1/namespaces/default/migrations/my-migration
+  uid: de4ea465-ac1f-11ea-a7cf-42010a8c017e
+spec:
+  artifacts:
+    deployment:
+      appName: app-quickstart-instance
+      bucket: kuchima03-migration-artifacts
+      pathPrefix: default-my-migration/
+    excludeFilters:
+    - '- *.swp'
+    - '- /etc/fstab'
+    - '- /boot/'
+    - '- /tmp/*'
+    - '- /var/log/*.log*'
+    - '- /var/log/*/*.log*'
+    - '- /var/cache/*'
+    image:
+      base: gcr.io/kuchima03/quickstart-instance-non-runnable-base:v1.0.0
+      name: gcr.io/kuchima03/quickstart-instance:v1.0.0
+  configs: {}
+  intent: Image
+  source:
+    gce:
+      labels:
+        migration-cluster: migration-processing
+        migration-name: my-migration
+        migration-namespace: default
+      project: kuchima03
+      vmId: quickstart-instance
+      zone: asia-east1-a
+status:
+  process: ""
+  state: ""
+  status: ""
+  steps: null
